@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   @book = Book.new
   @users = User.all
   end
-  
+
 private
 
   def user_params

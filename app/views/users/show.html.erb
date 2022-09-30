@@ -2,8 +2,9 @@
 <%= image_tag @user.get_profile_image(100,100)%>
 <%= @user.name %>
 <%= @user.introduction %>
-<%= link_to "edit_profile", edit_user_path(current_user.id) %>
-
+<% if @user == current_user %>
+  <p><%= link_to "edit_profile", edit_user_path(current_user.id) %></p>
+<% end %>
 
 
 <h1>New book</h1>
