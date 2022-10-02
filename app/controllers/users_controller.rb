@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else
       flash[:alert] = "You have not updated user successfully."
-      render "index"
+      render "edit"
     end
 
   end

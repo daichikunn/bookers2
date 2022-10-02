@@ -1,7 +1,7 @@
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>件のエラーが発生しました
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this book from being saved:
   <ul>
-    <% @user.errors.full_messages.each do |message| %>
+    <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <%= image_tag @user.get_profile_image(100,100)%>
+      <p><%= image_tag @user.get_profile_image(100,100) %></p>
       <table class="table">
         <tbody>
           <tr></tr>
