@@ -1,17 +1,5 @@
 class UsersController < ApplicationController
 
- def create
-    @user = User.new(user_params)
-
-    if @user.save
-      flash[:success] = 'Welcome! You have signed up successfully.'
-      redirect_to user_path
-    else
-      flash.now[:danger] = 'ユーザー登録に失敗しました'
-      render :new
-    end
-  end
-
 
 
 
@@ -19,7 +7,7 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     @book = Book.new
-    @books = @user.books
+    @books = @user.books.page(params[:page])
 
   end
 
@@ -45,12 +33,18 @@ class UsersController < ApplicationController
   def index
   @user = current_user
   @book = Book.new
-  @users = User.all
+  @users = User.page(params[:page])
   end
 
 private
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
+  end
+  
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
   end
 end

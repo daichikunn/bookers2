@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     user_path(current_user.id)
-   flash[:notice] = "Signed in successfully.."
+  # flash[:notice] = "Signed in successfully.."
   end
 
   def after_sign_out_path_for(resource)
-    flash[:notice] = "Signed out successfully.."
+  #  flash[:note] = "Signed out successfully.."
     root_path
   end
 
