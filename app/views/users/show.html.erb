@@ -21,6 +21,8 @@
       <div class="row">
       <% if @user == current_user %>
         <p><%= link_to "edit_profile", edit_user_path(current_user.id) %></p>
+      <% else %><p><%= link_to "edit_profile", user_path(current_user.id) %></p>
+        
       <% end %>
         <svg class="svg-inline--fa fa-user-cog fa-w-20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg>
           ::before
